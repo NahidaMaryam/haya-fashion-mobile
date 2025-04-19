@@ -4,6 +4,15 @@ import { Plus, Edit, Trash2, Search } from 'lucide-react';
 import { Product } from '@/components/ProductCard';
 import { toast } from '@/components/ui/use-toast';
 
+// Updated interface to match product type
+interface ProductFormData {
+  id?: string;
+  name: string;
+  price: number;
+  image: string;
+  category: string;
+}
+
 // Sample product data (would come from API in real app)
 const mockProducts: Product[] = [
   {
@@ -28,15 +37,6 @@ const mockProducts: Product[] = [
     category: 'Activewear',
   },
 ];
-
-// Product form interface
-interface ProductFormData {
-  id?: string;
-  name: string;
-  price: number;
-  image: string;
-  category: string;
-}
 
 const AdminProducts: React.FC = () => {
   const [products, setProducts] = useState<Product[]>(mockProducts);
@@ -69,7 +69,14 @@ const AdminProducts: React.FC = () => {
   };
 
   const handleEdit = (product: Product) => {
-    setCurrentProduct(product);
+    // Convert product to ProductFormData format
+    setCurrentProduct({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      category: product.category,
+    });
     setShowForm(true);
   };
 
@@ -90,7 +97,7 @@ const AdminProducts: React.FC = () => {
     if (currentProduct.id) {
       // Update existing product
       const updatedProducts = products.map(product => 
-        product.id === currentProduct.id ? { ...currentProduct } : product
+        product.id === currentProduct.id ? { ...currentProduct as Product } : product
       );
       setProducts(updatedProducts);
       toast({
@@ -102,7 +109,7 @@ const AdminProducts: React.FC = () => {
       const newProduct = {
         ...currentProduct,
         id: Date.now().toString(),
-      };
+      } as Product;
       setProducts([...products, newProduct]);
       toast({
         title: "Product added",

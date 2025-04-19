@@ -1,9 +1,9 @@
-
 import React from 'react';
 import { Heart } from 'lucide-react';
+import { convertUSDtoINR, formatINR } from '@/utils/currency';
 
 export interface Product {
-  id: string; // Changed from number to string
+  id: string;
   name: string;
   price: number;
   image: string;
@@ -16,6 +16,8 @@ interface ProductCardProps {
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) => {
+  const priceInINR = convertUSDtoINR(product.price);
+  
   return (
     <div 
       className="product-card bg-white animate-fade-in"
@@ -35,7 +37,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) => {
       <div className="p-3">
         <h3 className="font-medium text-gray-800 truncate">{product.name}</h3>
         <p className="text-sm text-gray-500 mb-1">{product.category}</p>
-        <p className="font-semibold">${product.price.toFixed(2)}</p>
+        <p className="font-semibold">{formatINR(priceInINR)}</p>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
-
 import React, { useState } from 'react';
 import { ArrowLeft, Minus, Plus, Heart, ShoppingCart } from 'lucide-react';
 import { Product } from './ProductCard';
+import { convertUSDtoINR, formatINR } from '@/utils/currency';
 
 interface ProductDetailProps {
   product: Product | null;
@@ -15,6 +15,8 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onClose }) => {
   const [quantity, setQuantity] = useState(1);
   
   if (!product) return null;
+  
+  const priceInINR = convertUSDtoINR(product.price);
   
   const decreaseQuantity = () => {
     if (quantity > 1) setQuantity(quantity - 1);
@@ -49,7 +51,7 @@ const ProductDetail: React.FC<ProductDetailProps> = ({ product, onClose }) => {
         <div className="mb-6">
           <h2 className="text-2xl font-playfair font-bold mb-1">{product.name}</h2>
           <p className="text-sm text-gray-500 mb-2">by Maryam Haya</p>
-          <p className="text-xl font-semibold">${product.price.toFixed(2)}</p>
+          <p className="text-xl font-semibold">{formatINR(priceInINR)}</p>
         </div>
         
         <div className="mb-6">

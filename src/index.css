@@ -63,7 +63,7 @@
 
 @layer components {
   .mh-container {
-    @apply max-w-md mx-auto px-4 pb-24 pt-4 sm:px-6;
+    @apply max-w-md mx-auto px-4 pb-24 pt-4 sm:px-6 md:max-w-5xl lg:max-w-7xl;
   }
   
   .header-icon {
@@ -77,4 +77,43 @@
   .slide-menu {
     @apply fixed top-0 left-0 h-screen bg-white w-4/5 max-w-xs z-50 shadow-lg transform transition-transform duration-300 ease-in-out;
   }
+
+  /* Admin dashboard specific styles */
+  .admin-card {
+    @apply bg-white rounded-lg shadow-sm p-6;
+  }
+
+  .admin-section-title {
+    @apply text-xl font-playfair font-semibold mb-4;
+  }
+
+  /* Responsive utilities */
+  .desktop-only {
+    @apply hidden md:block;
+  }
+
+  .mobile-only {
+    @apply md:hidden;
+  }
+}
+
+/* Animation for page transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-exit {
+  opacity: 1;
+}
+
+.page-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
 }

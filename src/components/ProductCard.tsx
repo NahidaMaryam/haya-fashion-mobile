@@ -3,7 +3,7 @@ import React from 'react';
 import { Heart } from 'lucide-react';
 
 export interface Product {
-  id: number;
+  id: string; // Changed from number to string
   name: string;
   price: number;
   image: string;

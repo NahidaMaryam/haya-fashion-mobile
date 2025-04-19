@@ -3,28 +3,28 @@ import { Product } from "../components/ProductCard";
 
 export const featuredProducts: Product[] = [
   {
-    id: 1,
+    id: "1", // Changed from number to string
     name: "Elegant Silk Hijab",
     price: 29.99,
     image: "https://images.unsplash.com/photo-1577149844933-51d5d81f5a90?q=80&w=1000",
     category: "Hijabs"
   },
   {
-    id: 2,
+    id: "2", // Changed from number to string
     name: "Floral Pattern Abaya",
     price: 59.99,
     image: "https://images.unsplash.com/photo-1568952433186-011d8ce38ae1?q=80&w=1000",
     category: "Abayas"
   },
   {
-    id: 3,
+    id: "3", // Changed from number to string
     name: "Essential Black Jilbab",
     price: 49.99,
     image: "https://images.unsplash.com/photo-1635516647329-9fdc4fab6a5f?q=80&w=1000",
     category: "Jilbabs & Khimars"
   },
   {
-    id: 4,
+    id: "4", // Changed from number to string
     name: "Modern Burkini Set",
     price: 79.99,
     image: "https://images.unsplash.com/photo-1580651315530-69c8e0026377?q=80&w=1000",
@@ -34,28 +34,28 @@ export const featuredProducts: Product[] = [
 
 export const newArrivals: Product[] = [
   {
-    id: 5,
+    id: "5", // Changed from number to string
     name: "Sport Fit Hijab",
     price: 24.99,
     image: "https://images.unsplash.com/photo-1618608128511-2f21702b410a?q=80&w=1000",
     category: "Activewear"
   },
   {
-    id: 6,
+    id: "6", // Changed from number to string
     name: "Cotton Daily Abaya",
     price: 44.99,
     image: "https://images.unsplash.com/photo-1594748440890-147818c6dcd4?q=80&w=1000",
     category: "Abayas"
   },
   {
-    id: 7,
+    id: "7", // Changed from number to string
     name: "Premium Jersey Hijab",
     price: 19.99,
     image: "https://images.unsplash.com/photo-1627483262769-04d0a1401487?q=80&w=1000",
     category: "Hijabs"
   },
   {
-    id: 8,
+    id: "8", // Changed from number to string
     name: "Casual Khimar",
     price: 39.99,
     image: "https://images.unsplash.com/photo-1543486958-d783bfbf7f8a?q=80&w=1000",
